@@ -4,7 +4,7 @@ services:
     runtime: node
     plan: free
     region: oregon
-    buildCommand: npm ci --include=dev && npm install @rolldown/binding-linux-x64-gnu && npm run build
+    buildCommand: npm ci && npm install @rolldown/binding-linux-x64-gnu && npm run build
     startCommand: npm start
     healthCheckPath: /
     envVars:
@@ -16,3 +16,5 @@ services:
         value: "0.0.0.0"
       - key: NPM_CONFIG_OPTIONAL
         value: "true"
+      - key: NPM_CONFIG_PRODUCTION
+        value: "false"
