@@ -4,7 +4,7 @@ services:
     runtime: node
     plan: free
     region: oregon
-    buildCommand: npm install && npm run build
+    buildCommand: rm -rf node_modules && npm install --include=optional && npm run build
     startCommand: npm start
     healthCheckPath: /
     envVars:
@@ -14,3 +14,5 @@ services:
         value: production
       - key: HOST
         value: "0.0.0.0"
+      - key: NPM_CONFIG_OPTIONAL
+        value: "true"
