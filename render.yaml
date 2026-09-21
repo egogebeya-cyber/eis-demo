@@ -4,7 +4,7 @@ services:
     runtime: node
     plan: free
     region: oregon
-    buildCommand: rm -rf node_modules && npm install --include=optional && npm run build
+    buildCommand: rm -rf node_modules package-lock.json && npm install && npm install @rolldown/binding-linux-x64-gnu && npm run build
     startCommand: npm start
     healthCheckPath: /
     envVars:
